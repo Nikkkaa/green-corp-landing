@@ -118,20 +118,12 @@ button {
 }
 
 .form label {
+  font-weight: 600;
   font-size: 18px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.form input {
-  font-size: 18px;
-  color: #213053;
-  height: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 15px;
-  border: none;
-}
-
+.form input,
 .form select {
   font-size: 18px;
   color: #213053;
@@ -163,7 +155,7 @@ button:hover {
 }
 
 footer {
-  margin: 90px 20px 90px 20px;
+  padding: 90px 20px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -183,10 +175,10 @@ footer {
   margin-right: 80px;
 }
 
-.footer__group h3 {
+.footer h3 {
   font-size: 16px;
   opacity: 0.7;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .footer__links {
