@@ -409,7 +409,7 @@ footer {
 }
 
 .promo__image {
-    background-image: url("https://nikkkaa.github.io/green-corp-landing/img/promo.jpg");
+    background-image: url("../img/promo.png");
     width: 50%;
     flex-shrink: 0;
     background-size: cover;
