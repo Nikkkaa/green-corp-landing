@@ -409,7 +409,7 @@ footer {
 }
 
 .promo__image {
-    background-image: url(/img/promo.jpg);
+    background-image: url(../img/promo.jpg);
     width: 50%;
     flex-shrink: 0;
     background-size: cover;
