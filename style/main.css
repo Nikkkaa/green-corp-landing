@@ -3,9 +3,13 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  position: sticky;
   top: 0;
   z-index: 1;
+  position: fixed;
+  background: none;
+  left: 0;
+  right: 0;
+  transition: box-shadow, background-color 0.25s ease;
 }
 
 body {
@@ -483,4 +487,10 @@ footer {
 
 .about {
   position: relative;
+  padding-top: 200px;
+}
+
+.header__scrolled {
+  background-color: white;
+  box-shadow: 0 12px 34px -11px rgb(65 62 101 / 10%);
 }
