@@ -62,3 +62,20 @@ function updateScroll() {
     initIncreaseNumberAnimation();
   }
 }
+
+function addSmoothScroll(anchor) {
+  anchor.addEventListener("click", onLinkClick);
+}
+
+function onLinkClick(event) {
+  event.preventDefault();
+  document.querySelector(event.target.getAttribute("href")).scrollIntoView({
+    behavior: "smooth",
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  addSmoothScroll(anchor);
+});
+
+addSmoothScroll(document.querySelector(".more-button"));
