@@ -23,14 +23,16 @@
 
   <body>
     <header>
-      <img class="header__logo" src="img/logo.svg" />
+      <a href="">
+        <img class="header__logo" src="img/logo.svg" />
+      </a>
       <div class="header__controls">
         <a href="#form">Контакты</a>
-        <button>Заказать</button>
+        <button class="more-button-buy" href="#form">Заказать</button>
       </div>
     </header>
 
-    <section class="about">
+    <section class="about" id="about">
       <canvas class="orb-canvas" id="orb-canvas"></canvas>
       <div
         class="about__info animate__animated animate__fadeInLeft animate__slow"
@@ -89,7 +91,7 @@
         <div class="features__feedback-left">
           <h2>
             Нам доверяет<br />
-            <div class="features__clients-count">5000+</div>
+            <div class="features__clients-count">0</div>
             счастливых клиентов
           </h2>
           <p>
@@ -155,11 +157,11 @@
           </div>
           <div class="form__group">
             <label for="email">Электронный адрес</label>
-            <input type="email" placeholder="***@yandex.ru" id="email" />
+            <input type="email" placeholder="Адрес почты" id="email" />
           </div>
           <div class="form__group">
             <label for="phone">Номер телефона</label>
-            <input type="tel" placeholder="7 (999) 999-99-99" id="phone" />
+            <input type="tel" placeholder="+7 (999) 999-99-99" id="phone" />
           </div>
           <div class="form__group">
             <label for="budget">Примерный бюджет</label>

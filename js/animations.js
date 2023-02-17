@@ -1,26 +1,4 @@
-const INCREASE_NUMBER_ANIMATION_SPEED = 50;
-window.addEventListener("scroll", updateScroll);
-
-function increaseNumberAnimationStep(i, element, endNumber) {
-  if (i <= endNumber) {
-    if (i === endNumber) {
-      element.innerText = i + "+";
-    } else {
-      element.innerText = i;
-    }
-
-    i += 100;
-
-    setTimeout(() => {
-      increaseNumberAnimationStep(i, element, endNumber);
-    }, INCREASE_NUMBER_ANIMATION_SPEED);
-  }
-}
-
-function initIncreaseNumberAnimation() {
-  const element = document.querySelector(".features__clients-count");
-  increaseNumberAnimationStep(0, element, 5000);
-}
+// Добавление в инпут поля
 
 document
   .querySelector("#budget")
@@ -46,21 +24,52 @@ document
     }
   });
 
+//Анимация счетчика
+
+function increaseNumberAnimationStep(i, element, endNumber) {
+  const INCREASE_NUMBER_ANIMATION_SPEED = 40;
+  if (i <= endNumber) {
+    if (i === endNumber) {
+      element.innerText = i + "+";
+    } else {
+      element.innerText = i;
+    }
+
+    i += 100;
+
+    setTimeout(function () {
+      increaseNumberAnimationStep(i, element, endNumber);
+    }, INCREASE_NUMBER_ANIMATION_SPEED);
+  }
+}
+
+function initIncreaseNumberAnimation() {
+  const element = document.querySelector(".features__clients-count");
+  increaseNumberAnimationStep(0, element, 5000);
+}
+
+// Запуск анимации при скроле страницы
 function updateScroll() {
+  let animationInited = true;
+  let windowBottomPosition = window.scrollY + window.innerHeight;
+  let countElementPosition = document.querySelector(
+    ".features__clients-count"
+  ).offsetTop;
+  let countPeople = document.querySelector(
+    ".features__clients-count"
+  ).innerText;
+  if (windowBottomPosition >= countElementPosition && countPeople == 0) {
+    initIncreaseNumberAnimation();
+    animationInited = false;
+  }
+
+  // Анимация хедера
   if (window.scrollY > 0) {
     document.querySelector("header").classList.add("header__scrolled");
   } else {
     document.querySelector("header").classList.remove("header__scrolled");
   }
-
-  let windowBottomPosition = window.scrollY + window.innerHeight;
-  let countElementPosition = document.querySelector(
-    ".features__clients-count"
-  ).offsetTop;
-  if (windowBottomPosition >= countElementPosition && !animationInited) {
-    animationInited = true;
-    initIncreaseNumberAnimation();
-  }
+  window.addEventListener("scroll", updateScroll);
 }
 
 function addSmoothScroll(anchor) {
@@ -78,4 +87,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   addSmoothScroll(anchor);
 });
 
+updateScroll();
 addSmoothScroll(document.querySelector(".more-button"));
+addSmoothScroll(document.querySelector(".more-button-buy"));
